@@ -2,6 +2,7 @@ class DXRMenuSetupRando expands MenuUIScreenWindow;
 
 var MenuUIInfoButtonWindow winNameBorder;
 var float combatDifficulty;
+var bool bSetHardCore;
 
 struct EnumBtn {
     var MenuUIActionButtonWindow btn;
@@ -407,7 +408,7 @@ function InvokeNewGameScreen(float difficulty, DXRando dxr)
     newGame = DXRMenuScreenNewGame(root.InvokeMenuScreen(Class'DXRMenuScreenNewGame'));
 
     if (newGame != None) {
-        newGame.SetDifficulty(difficulty);
+        newGame.SetDifficulty(difficulty, bSetHardCore);
         newGame.SetDxr(dxr);
     }
 }
@@ -455,9 +456,10 @@ event StyleChanged()
                                   colButtonFace, colButtonFace, colButtonFace);*/
 }
 
-function SetDifficulty(float newDifficulty)
+function SetDifficulty(float newDifficulty, optional bool bHardcore)
 {
     combatDifficulty = newDifficulty;
+    bSetHardCore = bHardcore;
 }
 
 // ----------------------------------------------------------------------

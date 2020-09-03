@@ -2,7 +2,7 @@
 // DeusExLevelInfo
 //=============================================================================
 class DeusExLevelInfo extends Info
-    native;
+	native;
 
 var() String				MapName;
 var() String				MapAuthor;
@@ -13,7 +13,7 @@ var() class<MissionScript>	Script;
 var() int					TrueNorth;
 var() localized String		startupMessage[4];		// printed when the level starts
 var() String				ConversationPackage;  // DEUS_EX STM -- added so SDK users will be able to use their own convos
-
+var() bool                  bBarOrClub;                 //CyberP: bar map, so no dynamic music
 
 function SpawnScript()
 {
@@ -51,9 +51,9 @@ function SpawnScript()
 
 function PostBeginPlay()
 {
-    Super.PostBeginPlay();
+	Super.PostBeginPlay();
 
-    SpawnScript();
+	SpawnScript();
 }
 
 defaultproperties
